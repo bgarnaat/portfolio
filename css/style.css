@@ -1,0 +1,77 @@
+header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  background-color: black;
+  color: lightgrey;
+  margin-top: -130px;
+  margin-left: -8px;
+}
+li {
+  list-style: none;
+}
+nav {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  margin-top: 30px;
+}
+nav > ul {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.nav_li {
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  background-color: darkgrey;
+  color: lightgrey;
+}
+main {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 130px;
+}
+aside {
+  width: 20%;
+  position: absolute;
+  background-color: blue;
+}
+.aside_left{
+  margin-left: -20%;
+  left: 20%;
+}
+.aside_right {
+  left: 80%;
+}
+.content_area {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.content_card > div{
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row;
+}
+.content_list {
+  min-width: 200px;
+  width: 20%;
+}
+.content_description {
+  width: 80%;
+  margin: 20px;
+}
+.content_description > p {
+  border: 1px solid black;
+}
+
+.template {
+  display: none;
+}
+a, a:visited {
+  color: black;
+}
