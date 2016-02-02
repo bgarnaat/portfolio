@@ -39,5 +39,5 @@ data.forEach(function(ele) {
 });
 
 projects.forEach(function(a){
-  $('#content_area').append(a.toHtml());
+  $('#content_area').prepend(a.toHtml());
 });
