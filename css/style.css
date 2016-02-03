@@ -4,7 +4,7 @@ header {
   position: fixed;
   background-color: black;
   color: lightgrey;
-  margin-top: -130px;
+  margin-top: -110px;
   margin-left: -8px;
 }
 li {
@@ -33,11 +33,11 @@ main {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  margin-top: 130px;
+  margin-top: 110px;
 }
 aside {
   width: 20%;
-  position: absolute;
+  position: fixed;
   background-color: blue;
 }
 .aside_left{
