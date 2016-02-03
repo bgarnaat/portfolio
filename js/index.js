@@ -1,43 +1,22 @@
-var projects = [];
+var indexView = {};
 
-function Project(data) {
-  this.title = data.title;
-  this.course = data.course;
-  this.timeline = data.timeline;
-  this.completed = data.completed;
-  this.url = data.url;
-  this.description = data.description;
-}
+indexView.handleMainNav = function(event) {
+  $('.nav_main').on('click', 'li', function() {
+    var $main_section = $('main > section');
+    var $nav_click = $(this).data('content');
+    $main_section.hide();
+    $main_section.each(function() {
+      if($(this).attr('id') === $nav_click) {
+        $(this).show();
+      }
+    });
+  });
 
-Project.prototype.toHtml = function() {
-  var $new_project = $('article.template').clone();
-
-  $new_project.find('.title h2').text(this.title);
-  $new_project.find('.course p').text(this.course);
-  $new_project.find('.timeline p').text();
-  // Display the date as a relative number of "days ago":
-  $new_project.find('time').html(parseInt((new Date() - new Date(this.completed))/60/60/24/1000) + ' days ago');
-  $new_project.find('.link a').attr('href', this.url);
-  $new_project.find('.link a').text(this.url);
-  $new_project.find('.content_description p').text(this.description);
-
-  $new_project.append('<hr>');
-
-  $new_project.removeClass('template');
-  $new_project.addClass('content_card');
-
-  return $new_project;
+  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
-
-data.sort(function(a,b) {
-  return (new Date(b.completed)) - (new Date(a.completed));
-});
-
-data.forEach(function(ele) {
-  projects.push(new Project(ele));
-});
-
-projects.forEach(function(a){
-  $('#content_area').prepend(a.toHtml());
+$(document).ready(function() {
+  indexView.handleMainNav();
+  $('#projects').hide();
+  $('#about').hide();
 });

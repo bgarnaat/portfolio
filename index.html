@@ -7,48 +7,61 @@
   </head>
   <body>
     <header>
-      <nav class="nav_bar">
-        <ul class="nav_ul">
-          <li class="nav_li" id="button_home">Home</li>
-          <li class="nav_li" id="button_projects">Projects</li>
-          <li class="nav_li" id="button_about">About</li>
-        </ul>
-      </nav>
     </header>
+    <nav class="nav_main">
+      <ul class="nav_main_ul">
+        <li class="" data-content="home"><a href="#">Home</a></li>
+        <li class="" data-content="projects"><a href="#">Projects</a></li>
+        <li class="" data-content="about"><a href="#">About</a></li>
+      </ul>
+    </nav>
+    <aside class="aside_right">
+      <ul>
+        <li><article class="github"><a href="https://github.com/bgarnaat">Github</a></article></li>
+        <li><article class="twitter"><a href="#">Twitter:</a></article></li>
+      </ul>
+    </aside>
     <main>
-      <aside class="aside_left">
-        <ul>Projects by Course:
-          <li>Code 201</li>
-          <li>Code 301</li>
-        </ul>
-      </aside>
-      <section id="content_area">
-        <article class="template">
-          <div class="card_contents">
-            <ul class="content_list">
-              <li class="title"><h2>TITLE</h2></li>
-              <li class="course"><h3>Course:</h3><p></p></li>
-              <li class="timeline"><h3>Timeline:</h3><p></p></li>
-              <li class="time"><h3>Completed:</h3><time pubdate datetime="2000-01-01">Publish Time</time></li>
-              <li class="link"><h3>Link:</h3><a href="#"></a></li>
-            </ul>
-            <div class="content_description">
-              <h3>Description:</h3>
-              <p></p>
-            </div>            
-          </div>
-        </article>
+      <section id="home" class="mini_page">
+        <p>
+          This is some text for a home page.
+        </p>
       </section>
-      <aside class="aside_right">
-        <ul>
-          <li><article class="github"><a href="https://github.com/bgarnaat">Github</a></article></li>
-          <li><article class="twitter"><a href="#">Twitter:</a></article></li>
-        </ul>
-      </aside>
+      <section id="projects" class="mini_page">
+        <aside class="aside_left">
+          <ul>Projects by Course:
+            <li>Code 201</li>
+            <li>Code 301</li>
+          </ul>
+        </aside>
+        <div id="project_content_area">
+          <article class="template">
+            <div class="card_contents">
+              <ul class="content_list">
+                <li class="title"><h2>TITLE</h2></li>
+                <li class="course"><h3>Course:</h3><p></p></li>
+                <li class="timeline"><h3>Timeline:</h3><p></p></li>
+                <li class="time"><h3>Completed:</h3><time pubdate datetime="2000-01-01">Publish Time</time></li>
+                <li class="link"><h3>Link:</h3><a href="#"></a></li>
+              </ul>
+              <div class="content_description">
+                <h3>Description:</h3>
+                <p></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="about" class="mini_page">
+        <p>
+          THIS IS SOME TEXT
+        </p>
+      </section>
     </main>
 
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-    <script type="text/javascript" src="js/object.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/project_data.js"></script>
+    <script type="text/javascript" src="js/project.js"></script>
+    <script type="text/javascript" src=js/index.js></script>
   </body>
 </html>
