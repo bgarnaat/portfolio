@@ -1,10 +1,15 @@
+body {
+  margin: none;
+  background-color: black;
+  color: lightgray;
+}
 header {
   width: 100%;
   height: 100px;
   position: fixed;
   background-color: black;
   color: lightgrey;
-  margin-top: -110px;
+  margin-top: -150px;
   margin-left: -8px;
 }
 li {
@@ -14,14 +19,16 @@ nav {
   width: 100%;
   height: 50px;
   position: fixed;
-  margin-top: 30px;
+  margin-top: -50px;
+  margin-left: -8px;
+  background-color: darkgrey;
 }
 nav > ul {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
 }
-.nav_li {
+.main_nav_li {
   width: 100px;
   text-align: center;
   padding: 10px;
@@ -29,26 +36,29 @@ nav > ul {
   color: lightgrey;
 }
 main {
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
-  margin-top: 110px;
+  flex-direction: column;
+  margin: none;
+  margin-top: 150px;
 }
 aside {
   width: 20%;
   position: fixed;
-  background-color: blue;
+  background-color: darkgrey;
+  color: black;
+  margin-top: 20px;
 }
 .aside_left{
-  margin-left: -20%;
-  left: 20%;
+  margin-left: -20px;
 }
 .aside_right {
-  left: 80%;
+  margin-left: 80%;
 }
-.content_area {
-  width: 60%;
+#project_content_area {
+  margin-left: 20%;
+  width: 60%
   display: flex;
   flex-direction: column;
 }
@@ -61,12 +71,30 @@ aside {
   min-width: 200px;
   width: 20%;
 }
+.content_list > li {
+  margin: 10px;
+}
+.content_list > li > * {
+  padding: 0px;
+  margin: 5px;
+}
 .content_description {
   width: 80%;
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /*flex-flow: row wrap;*/
+}
+.content_description > h3 {
+  width: 100%;
+  height: 1em;
 }
 .content_description > p {
-  border: 1px solid black;
+  width: 100%;
+  height: calc(100% - 1em - 40px);
+  /*align-self: stretch;*/
+  border: 1px solid darkgrey;
 }
 
 .template {

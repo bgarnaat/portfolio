@@ -14,7 +14,7 @@ Project.prototype.toHtml = function() {
 
   $new_project.find('.title h2').text(this.title);
   $new_project.find('.course p').text(this.course);
-  $new_project.find('.timeline p').text();
+  $new_project.find('.timeline p').text(this.timeline);
   // Display the date as a relative number of "days ago":
   $new_project.find('time').html(parseInt((new Date() - new Date(this.completed))/60/60/24/1000) + ' days ago');
   $new_project.find('.link a').attr('href', this.url);
@@ -39,5 +39,5 @@ data.forEach(function(ele) {
 });
 
 projects.forEach(function(a){
-  $('#content_area').prepend(a.toHtml());
+  $('#project_content_area').prepend(a.toHtml());
 });
