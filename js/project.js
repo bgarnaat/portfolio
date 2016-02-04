@@ -6,6 +6,7 @@ function Project(data) {
   this.timeline = data.timeline;
   this.completed = data.completed;
   this.url = data.url;
+  this.deployed = data.deployed;
   this.description = data.description;
 }
 
@@ -19,7 +20,9 @@ Project.prototype.toHtml = function() {
   $new_project.find('time').html(parseInt((new Date() - new Date(this.completed))/60/60/24/1000) + ' days ago');
   $new_project.find('.link a').attr('href', this.url);
   $new_project.find('.link a').text(this.url);
-  $new_project.find('.content_description p').text(this.description);
+  $new_project.find('.deployed a').attr('href', this.deployed);
+  $new_project.find('.deployed a').text(this.deployed);
+  $new_project.find('.content_description').append(this.description);
 
   $new_project.append('<hr>');
 
@@ -31,7 +34,7 @@ Project.prototype.toHtml = function() {
 
 
 data.sort(function(a,b) {
-  return (new Date(b.completed)) - (new Date(a.completed));
+  return (new Date(a.completed)) - (new Date(b.completed));
 });
 
 data.forEach(function(ele) {

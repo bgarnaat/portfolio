@@ -1,39 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Portfolio: Ben Garnaat</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="vendor/style/normalize.css" type="text/css">
+    <link rel="stylesheet" href="style/icons.css" type="text/css">
+    <link rel="stylesheet" href="style/base.css" type="text/css">
+    <link rel="stylesheet" href="style/layout.css" type="text/css">
+    <link rel="stylesheet" href="style/module.css" type="text/css">
   </head>
   <body>
     <header>
+      <div class="header_logo_title">
+        <img src="img/ben2.jpg" alt="Ben" class="header_img" />
+        <hgroup>
+          <h1>Portfolio of Work</h1>
+          <h2>Ben Garnaat</h2>
+        </hgroup>
+      </div>
+      <nav class="nav_main">
+        <div class="icon-menu3"></div>
+        <ul class="nav_main_ul">
+          <li class="tab" data-content="home"><a href="#" class="icon-home menu_item">Home</a></li>
+          <li class="tab" data-content="projects"><a href="#" class="icon-list menu_item">Projects</a></li>
+          <li class="tab" data-content="about"><a href="#" class="icon-address-book menu_item">About</a></li>
+        </ul>
+      </nav>
     </header>
-    <nav class="nav_main">
-      <ul class="nav_main_ul">
-        <li class="" data-content="home"><a href="#">Home</a></li>
-        <li class="" data-content="projects"><a href="#">Projects</a></li>
-        <li class="" data-content="about"><a href="#">About</a></li>
-      </ul>
-    </nav>
-    <aside class="aside_right">
-      <ul>
-        <li><article class="github"><a href="https://github.com/bgarnaat">Github</a></article></li>
-        <li><article class="twitter"><a href="#">Twitter:</a></article></li>
-      </ul>
-    </aside>
     <main>
-      <section id="home" class="mini_page">
-        <p>
-          This is some text for a home page.
-        </p>
+      <aside class="projects mini_page aside_left">
+        <ul><h3>Projects by Course:</h3>
+          <li>Code 201</li>
+          <li>Code 301</li>
+        </ul>
+      </aside>
+      <aside class="aside_right">
+        <ul>
+          <li><article class="github"><a href="https://github.com/bgarnaat" class="icon-github"></a></article></li>
+          <li><article class="twitter"><a href="https://twitter.com/BGarnaat" class="icon-twitter"></a></article></li>
+        </ul>
+      </aside>
+      <section class="home mini_page">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. </p>
+
+        <p>Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. </p>
+
+        <p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. </p>
+
+        <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. </p>
       </section>
-      <section id="projects" class="mini_page">
-        <aside class="aside_left">
-          <ul>Projects by Course:
-            <li>Code 201</li>
-            <li>Code 301</li>
-          </ul>
-        </aside>
+      <section class="projects mini_page project_area">
         <div id="project_content_area">
           <article class="template">
             <div class="card_contents">
@@ -43,6 +64,7 @@
                 <li class="timeline"><h3>Timeline:</h3><p></p></li>
                 <li class="time"><h3>Completed:</h3><time pubdate datetime="2000-01-01">Publish Time</time></li>
                 <li class="link"><h3>Link:</h3><a href="#"></a></li>
+                <li class="deployed"><h3>Deployed:</h3><a href="#"></a></li>
               </ul>
               <div class="content_description">
                 <h3>Description:</h3>
@@ -52,12 +74,24 @@
           </article>
         </div>
       </section>
-      <section id="about" class="mini_page">
-        <p>
-          THIS IS SOME TEXT
-        </p>
+      <section class="about mini_page">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+
+        <p>Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. </p>
+
+        <p>Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. </p>
+
+        <p>Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. </p>
       </section>
     </main>
+    <footer>
+      <ul>
+        <li><a href="https://github.com/bgarnaat" class="icon-github"></a></li>
+        <li><a href="https://twitter.com/BGarnaat" class="icon-twitter"></a></li>
+      </ul>
+    </footer>
 
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="js/project_data.js"></script>
