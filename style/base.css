@@ -1,0 +1,69 @@
+/*========== Base ==========*/
+body {
+  background-color: black;
+  color: lightgrey;
+}
+header {
+  width: 100%;
+  margin-top: -200px;
+  position: fixed;
+  background-color: #222222;
+}
+main {
+  width: 100%;
+  margin-top: 200px;
+}
+aside {
+  display: none;
+}
+li {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+}
+footer {
+}
+
+
+/*========== Text ==========*/
+
+p {
+  text-align: justify;
+}
+
+
+/*========== Link ==========*/
+a, a:link, a:hover, a:visited{
+  text-decoration: none;
+  padding: 5px;
+}
+a, a:visited {
+  color: darkgreen;
+}
+a:hover {
+  color: lightgreen;
+}
+
+@media only screen and (min-width: 640px) {
+  header {
+    margin-top: -250px;
+  }
+  nav {
+    background-color: #111111;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  aside {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #222222;
+    border-radius: 20px;
+  }
+  main {
+    margin-top: 250px;
+    width: 100%;
+  }
+}
