@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="style/base.css" type="text/css">
     <link rel="stylesheet" href="style/layout.css" type="text/css">
     <link rel="stylesheet" href="style/module.css" type="text/css">
+
+    <script id="project_template" type="text/x-handlebars-template">
+      <article data-course="{{course}}">
+        <div class="card_contents">
+          <ul class="content_list">
+            <li class="title"><h2>{{title}}</h2></li>
+            <li class="course"><h3>Course:</h3><p>{{course}}</p></li>
+            <li class="timeline"><h3>Timeline:</h3><p>{{timeline}}</p></li>
+            <li class="time"><h3>Completed:</h3><p>{{status}}</p></li>
+            <li class="link"><h3>Link:</h3><a href="{{url}}">{{url}}</a></li>
+            <li class="deployed"><h3>Deployed:</h3><a href="{{deployed}}">{{deployed}}</a></li>
+          </ul>
+          <!-- <iframe src="{{deployed}}" width="600" height="600"></iframe> -->
+          <div class="content_description">
+            <h3>Description:</h3>
+            {{{description}}}
+          </div>
+        </div>
+      </article>
+    </script>
   </head>
   <body>
     <header>
@@ -39,8 +59,8 @@
       </aside>
       <aside class="aside_right">
         <ul>
-          <li><article class="github"><a href="https://github.com/bgarnaat" class="icon-github"></a></article></li>
-          <li><article class="twitter"><a href="https://twitter.com/BGarnaat" class="icon-twitter"></a></article></li>
+          <li><a href="https://github.com/bgarnaat" class="icon-github"></a></li>
+          <li><a href="https://twitter.com/BGarnaat" class="icon-twitter"></a></li>
         </ul>
       </aside>
       <section class="home mini_page">
@@ -56,22 +76,6 @@
       </section>
       <section class="projects mini_page project_area">
         <div id="project_content_area">
-          <article class="template">
-            <div class="card_contents">
-              <ul class="content_list">
-                <li class="title"><h2>TITLE</h2></li>
-                <li class="course"><h3>Course:</h3><p></p></li>
-                <li class="timeline"><h3>Timeline:</h3><p></p></li>
-                <li class="time"><h3>Completed:</h3><time pubdate datetime="2000-01-01">Publish Time</time></li>
-                <li class="link"><h3>Link:</h3><a href="#"></a></li>
-                <li class="deployed"><h3>Deployed:</h3><a href="#"></a></li>
-              </ul>
-              <div class="content_description">
-                <h3>Description:</h3>
-                <p></p>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
       <section class="about mini_page">
@@ -94,6 +98,7 @@
     </footer>
 
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="js/project_data.js"></script>
     <script type="text/javascript" src="js/project.js"></script>
     <script type="text/javascript" src=js/index.js></script>

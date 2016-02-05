@@ -11,25 +11,12 @@ function Project(data) {
 }
 
 Project.prototype.toHtml = function() {
-  var $new_project = $('article.template').clone();
+  var template = Handlebars.compile($('#project_template').text());
 
-  $new_project.find('.title h2').text(this.title);
-  $new_project.find('.course p').text(this.course);
-  $new_project.find('.timeline p').text(this.timeline);
-  // Display the date as a relative number of "days ago":
-  $new_project.find('time').html(parseInt((new Date() - new Date(this.completed))/60/60/24/1000) + ' days ago');
-  $new_project.find('.link a').attr('href', this.url);
-  $new_project.find('.link a').text(this.url);
-  $new_project.find('.deployed a').attr('href', this.deployed);
-  $new_project.find('.deployed a').text(this.deployed);
-  $new_project.find('.content_description').append(this.description);
+  this.completed_days = parseInt((new Date() - new Date(this.completed))/60/60/24/1000);
+  this.status = this.completed ? this.completed_days + ' days ago' : '(in progress)';
 
-  $new_project.append('<hr>');
-
-  $new_project.removeClass('template');
-  $new_project.addClass('content_card');
-
-  return $new_project;
+  return template(this);
 };
 
 

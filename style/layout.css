@@ -8,13 +8,6 @@
   height: 100px;
   margin: 10px;
 }
-.nav_main_ul {
-  display: none;
-  padding: 5px;
-}
-.nav_main:hover ul {
-  display: block;
-}
 .tab {
   background-color: darkgrey;
   text-align: center;
@@ -22,6 +15,7 @@
 
 .aside_left {
   width: 100%;
+  display: block;
   text-align: center;
 }
 .aside_left > ul {
@@ -46,31 +40,26 @@ footer > ul {
   flex-direction: row;
 }
 
-.template {
-  display: none;
-}
-
 @media only screen and (min-width: 640px) {
-  .icon-menu3 {
-    display: none;
-  }
-  .nav_main_ul {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-  }
-  .nav_main:hover ul {
-    display: flex;
-  }
+
   .aside_right {
     width: 10%;
     margin-left: 90%;
+    display: flex;
+    justify-content: center;
   }
   .aside_right > ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     padding: 0px;
+    /*background-color: blue;*/
+  }
+  /*.aside_right > ul > li {
+    background-color: green;
+    width: 16px;
+  }*/
+  .icon-twitter {
   }
   .aside_left {
     width: 20%;
@@ -81,8 +70,8 @@ footer > ul {
     flex-direction: column;
     padding: 0px;
   }
-  .home .about{
-    width: 90%;
+  .home, .about{
+    width: 85%;
   }
   .project_area {
     width: 60%;
