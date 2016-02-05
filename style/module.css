@@ -1,1 +1,21 @@
+.nav_main_ul {
+  display: none;
+  padding: 5px;
+}
+.nav_main:hover ul {
+  display: block;
+}
 
+@media only screen and (min-width: 640px) {
+  .nav_main_ul {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .icon-menu3 {
+    display: none;
+  }
+  .nav_main:hover ul {
+    display: flex;
+  }
+}

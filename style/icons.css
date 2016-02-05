@@ -113,6 +113,6 @@
 .icon-edge:before {
 	content: "\e91d";
 }
-.icon-twitter::before {
+.icon-twitter:before {
 	content: "\e91e";
 }
