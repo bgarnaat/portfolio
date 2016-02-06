@@ -78,4 +78,7 @@ footer > ul {
     margin-left: 20%;
     padding: 0px 5% 5% 5%;
   }
+  .footer_social {
+    display: none;
+  }
 }
