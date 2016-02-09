@@ -9,8 +9,18 @@ indexView.handleMainNav = function(event) {
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
-$(document).ready(function() {
+// $(document).ready(function() {
+// });
+//
+
+
+
+indexView.initIndexPage = function() {
+  Project.all.forEach(function(a){
+    $('#project_content_area').prepend(a.toHtml());
+  });
+
   indexView.handleMainNav();
   $('.projects').hide();
   $('.about').hide();
-});
+};

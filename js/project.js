@@ -1,4 +1,4 @@
-var projects = [];
+// var projects = [];
 
 function Project(data) {
   this.title = data.title;
@@ -10,6 +10,8 @@ function Project(data) {
   this.description = data.description;
 }
 
+Project.all = [];
+
 Project.prototype.toHtml = function() {
   var template = Handlebars.compile($('#project_template').text());
 
@@ -19,15 +21,41 @@ Project.prototype.toHtml = function() {
   return template(this);
 };
 
+Project.loadAll = function(data_projects) {
+  data_projects.sort(function(a,b) {
+    return (new Date(a.completed)) - (new Date(b.completed));
+  });
 
-data.sort(function(a,b) {
-  return (new Date(a.completed)) - (new Date(b.completed));
-});
+  data_projects.forEach(function(ele) {
+    Project.all.push(new Project(ele));
+  });
+};
 
-data.forEach(function(ele) {
-  projects.push(new Project(ele));
-});
-
-projects.forEach(function(a){
-  $('#project_content_area').prepend(a.toHtml());
-});
+Project.fetchAll = function() {
+  if (localStorage.data_projects) {
+    $.ajax({
+      type: 'HEAD',
+      url: 'data/data_projects.json',
+      success: function(data, message, xhr) {
+        console.log(xhr);
+        var eTag = xhr.getResponseHeader('eTag');
+        if (!localStorage.eTag || eTag !== localStorage.eTag) {
+          localStorage.clear();
+          localStorage.eTag = eTag;
+          Project.fetchAll();
+        } else {
+          Project.loadAll(JSON.parse(localStorage.data_projects));
+          indexView.initIndexPage();
+        }
+      }
+    });
+  } else {
+    console.log('Creating local storage...');
+    $.getJSON('data/data_projects.json', function(data_projects) {
+      Project.loadAll(data_projects);
+      localStorage.setItem('data_projects', JSON.stringify(Project.all));
+      indexView.initIndexPage();
+    });
+    console.log('Local storage ready');
+  }
+};
