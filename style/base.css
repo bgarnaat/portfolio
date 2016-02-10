@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #333333;
+  background-color: #292434;
   color: #99CC33;
 }
 header {
@@ -14,7 +14,14 @@ header {
   top: 0;
   position: fixed;
   background-color: #666666;
-  color: #FFFFFF;
+  color: black;
+  background-image: url('/img/PC241008.JPG');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+hgroup {
+  display: inline-block;
 }
 main {
   width: 100%;

@@ -1,26 +1,25 @@
-var indexView = {};
+'use strict';
 
-indexView.handleMainNav = function(event) {
-  $('.nav_main').on('click', '.tab', function() {
-    $('.mini_page').hide();
-    $('.' + $(this).data('content')).show();  // show only sections with a class matching the tab 'content'
-  });
+(function(module) {
+  var indexView = {};
+  module.indexView = indexView;
 
-  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
-};
+  indexView.handleMainNav = function(event) {
+    $('.nav_main').on('click', '.tab', function() {
+      $('.mini_page').hide();
+      $('.' + $(this).data('content')).show();  // show only sections with a class matching the tab 'content'
+    });
 
-// $(document).ready(function() {
-// });
-//
+    $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
+  };
 
+  indexView.initIndexPage = function() {
+    Project.all.forEach(function(a){
+      $('#project_content_area').prepend(a.toHtml());
+    });
 
-
-indexView.initIndexPage = function() {
-  Project.all.forEach(function(a){
-    $('#project_content_area').prepend(a.toHtml());
-  });
-
-  indexView.handleMainNav();
-  $('.projects').hide();
-  $('.about').hide();
-};
+    indexView.handleMainNav();
+    $('.projects').hide();
+    $('.about').hide();
+  };
+})(window);
