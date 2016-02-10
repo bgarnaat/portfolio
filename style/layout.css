@@ -1,8 +1,9 @@
 .header_logo_title {
-  display: flex;
-  flex-direction: row;
+  display: inline-block;;
+  /*flex-direction: row;*/
 }
 .header_img {
+  display: inline-block;
   border-radius: 100%;
   width: 100px;
   height: 100px;
@@ -53,7 +54,6 @@ footer > ul {
     justify-content: center;
     flex-direction: column;
     padding: 0px;
-    /*background-color: blue;*/
   }
   /*.aside_right > ul > li {
     background-color: green;
