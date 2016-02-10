@@ -40,9 +40,9 @@ Project.fetchAll = function() {
         console.log(xhr);
         var eTag = xhr.getResponseHeader('eTag');
         if (!localStorage.eTag || eTag !== localStorage.eTag) {
-          localStorage.clear();
+          // localStorage.clear();
           localStorage.eTag = eTag;
-          Project.fetchAll();
+          Project.getData();
         } else {
           Project.loadAll(JSON.parse(localStorage.data_projects));
           indexView.initIndexPage();
@@ -51,11 +51,15 @@ Project.fetchAll = function() {
     });
   } else {
     console.log('Creating local storage...');
-    $.getJSON('data/data_projects.json', function(data_projects) {
-      Project.loadAll(data_projects);
-      localStorage.setItem('data_projects', JSON.stringify(Project.all));
-      indexView.initIndexPage();
-    });
-    console.log('Local storage ready');
-  }
+    Project.getData();
+  };
+  console.log('Local storage ready');
+};
+
+Project.getData = function() {
+  $.getJSON('data/data_projects.json', function(data_projects) {
+    Project.loadAll(data_projects);
+    localStorage.data_projects = JSON.stringify(data_projects);
+    indexView.initIndexPage();
+  });
 };
