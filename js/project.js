@@ -10,8 +10,13 @@
     this.deployed = data.deployed;
     this.description = data.description;
   }
-
+  function Courses(data) {
+    this.category = data;
+  };
+  Courses.all = [];
   Project.all = [];
+
+  module.Courses = Courses;
   module.Project = Project;
 
   Project.prototype.toHtml = function() {
@@ -23,6 +28,20 @@
     return template(this);
   };
 
+  Courses.prototype.toHtml = function() {
+    var template = Handlebars.compile($('#project_menu_template').text());
+    return template(this);
+  };
+
+  Project.allCoursesFilter = function() {
+    return Project.all.map(function(project) {
+      return project.course;
+    })
+    .filter(function(ele, idx, arr) {
+      return arr.indexOf(ele) === idx;
+    });
+  };
+
   Project.loadAll = function(data_projects) {
     data_projects.sort(function(a,b) {
       return (new Date(a.completed)) - (new Date(b.completed));
@@ -30,6 +49,10 @@
 
     data_projects.forEach(function(ele) {
       Project.all.push(new Project(ele));
+    });
+
+    Project.allCoursesFilter().forEach(function(ele) {
+      Courses.all.push(new Courses(ele));
     });
   };
 
@@ -47,7 +70,7 @@
             Project.getData();
           } else {
             Project.loadAll(JSON.parse(localStorage.data_projects));
-            indexView.initIndexPage();
+            index_view.initIndexPage();
           }
         }
       });
@@ -62,7 +85,7 @@
     $.getJSON('data/data_projects.json', function(data_projects) {
       Project.loadAll(data_projects);
       localStorage.data_projects = JSON.stringify(data_projects);
-      indexView.initIndexPage();
+      index_view.initIndexPage();
     });
   };
 })(window);

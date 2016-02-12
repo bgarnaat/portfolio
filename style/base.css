@@ -60,19 +60,15 @@ a:hover {
 
 @media only screen and (min-width: 640px) {
   header {
-  top: 0;
+  /*top: 0;*/
 }
   nav {
-    background-color: #111111;
     margin: 0px;
     padding: 0px;
   }
 
   aside {
     position: fixed;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
     background-color: #222222;
     border-radius: 20px;
   }
