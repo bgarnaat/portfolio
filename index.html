@@ -31,6 +31,9 @@
         </div>
       </article>
     </script>
+    <script id="project_menu_template" type="text/x-handlebars-template">
+      <li id="{{category}}">{{category}}</li>
+    </script>
   </head>
   <body>
     <header>
@@ -52,15 +55,13 @@
     </header>
     <main>
       <aside class="projects mini_page aside_left">
-        <ul><h3>Projects by Course:</h3>
-          <li>Code 201</li>
-          <li>Code 301</li>
+        <ul id="project_list"><h3>Projects by Course:</h3>
         </ul>
       </aside>
       <aside class="aside_right">
         <ul>
           <li><a href="https://github.com/bgarnaat" class="icon-github"></a></li>
-          <li><a href="https://twitter.com/BGarnaat" class="icon-twitter"></a></li>
+          <li><a href="https://twitter.com/bgarnaat" class="icon-twitter"></a></li>
         </ul>
       </aside>
       <section class="home mini_page">
@@ -100,7 +101,7 @@
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="js/project.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/index_view.js"></script>
     <script type="text/javascript" src="js/map_reduce.js"></script>
     <script>
       Project.fetchAll();
