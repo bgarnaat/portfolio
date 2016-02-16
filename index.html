@@ -20,10 +20,13 @@
       </li>
     </script>
 
-    <script id="project_menu_template" type="text/x-handlebars-template">
+
+    <script id="template_project_menu" type="text/x-handlebars-template">
       <li>
-        <ul id="{{category}}">{{category}}
-          <!-- #each  -->
+        <ul id="{{category}}"><a href="/projects/{{category}}">{{category}}</a>
+          {{#each project}}
+          <li data-project="{{title}}"><a href="/projects/{{category}}/{{title}}">{{title}}</a></li>
+          {{/each}}
         </ul>
     </li>
     </script>
