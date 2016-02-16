@@ -2,7 +2,7 @@
 * {
   /*font-family: serif;*/
   font-family: times;
-  font-size: 1.025em;
+  font-size: 1.03em;
 }
 
 body {
@@ -30,10 +30,16 @@ main {
 aside {
   display: none;
 }
+ul {
+  padding: 0;
+}
 li {
   list-style: none;
   padding: 10px;
   margin: 10px;
+}
+select {
+  font-size: 1.5em;
 }
 footer {
 }

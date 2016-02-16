@@ -12,27 +12,43 @@
     <link rel="stylesheet" href="style/layout.css" type="text/css">
     <link rel="stylesheet" href="style/module.css" type="text/css">
 
-    <script id="project_template" type="text/x-handlebars-template">
-      <article data-course="{{course}}">
+    <script id="template_filter" type="text/x-handlebars-template">
+      <li>
+        <select id="filter_{{filter_type}}">
+          <option value="">-- Filter by {{filter-type}} --</option>
+        </select>
+      </li>
+    </script>
+
+    <script id="project_menu_template" type="text/x-handlebars-template">
+      <li>
+        <ul id="{{category}}">{{category}}
+          <!-- #each  -->
+        </ul>
+    </li>
+    </script>
+
+    <script id="template_project" type="text/x-handlebars-template">
+      <article data-category="{{category}}" data-project="{{title}}">
         <div class="card_contents">
-          <ul class="content_list">
-            <li class="title"><h2>{{title}}</h2></li>
-            <li class="course"><h3>Course:</h3><p>{{course}}</p></li>
-            <li class="timeline"><h3>Timeline:</h3><p>{{timeline}}</p></li>
-            <li class="time"><h3>Completed:</h3><p>{{status}}</p></li>
-            <li class="link"><h3>Link:</h3><a href="{{url}}">{{url}}</a></li>
-            <li class="deployed"><h3>Deployed:</h3><a href="{{deployed}}">{{deployed}}</a></li>
-          </ul>
-          <!-- <iframe src="{{deployed}}" width="600" height="600"></iframe> -->
+          <div class="info_and_img">
+            <ul class="content_list">
+              <li class="title"><h2>{{title}}</h2></li>
+              <li class="category"><h3>Category:</h3><p>{{category}}</p></li>
+              <li class="timeline"><h3>Timeline:</h3><p>{{timeline}}</p></li>
+              <li class="time"><h3>Completed:</h3><p>{{status}}</p></li>
+              <li class="link"><h3>Link:</h3><a href="{{url}}">{{url}}</a></li>
+              <li class="deployed"><h3>Deployed:</h3><a href="{{deployed}}">{{deployed}}</a></li>
+            </ul>
+            <!-- TODO:  get screenshots of all projects and include here. -->
+            <!-- <img src="{{img_path}}" alt="original submission of {{title}}" /> -->
+          </div>
           <div class="content_description">
             <h3>Description:</h3>
             {{{description}}}
           </div>
         </div>
       </article>
-    </script>
-    <script id="project_menu_template" type="text/x-handlebars-template">
-      <li id="{{category}}">{{category}}</li>
     </script>
   </head>
   <body>
@@ -47,17 +63,13 @@
       <nav class="nav_main">
         <div class="icon-menu3"></div>
         <ul class="nav_main_ul">
-          <li class="tab" data-content="home"><a href="#" class="icon-home menu_item">Home</a></li>
-          <li class="tab" data-content="projects"><a href="#" class="icon-list menu_item">Projects</a></li>
-          <li class="tab" data-content="about"><a href="#" class="icon-address-book menu_item">About</a></li>
+          <li class="tab" data-content="home"><a href="/" class="icon-home menu_item">Home</a></li>
+          <li class="tab" data-content="projects"><a href="/projects" class="icon-list menu_item">Projects</a></li>
+          <li class="tab" data-content="about"><a href="/about" class="icon-address-book menu_item">About</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <aside class="projects mini_page aside_left">
-        <ul id="project_list"><h3>Projects by Course:</h3>
-        </ul>
-      </aside>
       <aside class="aside_right">
         <ul>
           <li><a href="https://github.com/bgarnaat" class="icon-github"></a></li>
@@ -76,6 +88,22 @@
         <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. </p>
       </section>
       <section class="projects mini_page project_area">
+        <ul id="filters">
+          <li>
+            <select id="filter_category">
+              <option value="">-- Filter by Category --</option>
+            </select>
+          </li>
+          <li>
+            <select id="filter_project">
+              <option value="">-- Filter by Projects --</option>
+            </select>
+          </li>
+        </ul>
+        <aside id="aside_left" class="aside_left">
+          <ul id="project_list"><h3>Projects by Category:</h3>
+          </ul>
+        </aside>
         <div id="project_content_area">
         </div>
       </section>
@@ -98,13 +126,18 @@
       </ul>
     </footer>
 
-    <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script type="text/javascript" src="js/project.js"></script>
-    <script type="text/javascript" src="js/index_view.js"></script>
-    <script type="text/javascript" src="js/map_reduce.js"></script>
-    <script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script type="text/javascript" src="scripts/project.js"></script>
+    <script type="text/javascript" src="scripts/index_view.js"></script>
+    <script type="text/javascript" src="/scripts/home_controller.js"></script>
+    <script type="text/javascript" src="/scripts/project_controller.js"></script>
+    <script type="text/javascript" src="/scripts/about_controller.js"></script>
+    <script type="text/javascript" src="/scripts/routes.js"></script>
+    <!-- <script type="text/javascript" src="js/map_reduce.js"></script> -->
+    <!-- <script>
       Project.fetchAll();
-    </script>
+    </script> -->
   </body>
 </html>

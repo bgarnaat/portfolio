@@ -3,24 +3,25 @@
 (function(module) {
   function Project(data) {
     this.title = data.title;
-    this.course = data.course;
+    this.category = data.category;
     this.timeline = data.timeline;
     this.completed = data.completed;
     this.url = data.url;
     this.deployed = data.deployed;
     this.description = data.description;
   }
-  function Courses(data) {
+  function Categories(data) {
     this.category = data;
   };
-  Courses.all = [];
+
+  Categories.all = [];
   Project.all = [];
 
-  module.Courses = Courses;
+  module.Categories = Categories;
   module.Project = Project;
 
   Project.prototype.toHtml = function() {
-    var template = Handlebars.compile($('#project_template').text());
+    var template = Handlebars.compile($('#template_project').text());
 
     this.completed_days = parseInt((new Date() - new Date(this.completed))/60/60/24/1000);
     this.status = this.completed ? this.completed_days + ' days ago' : '(in progress)';
@@ -28,14 +29,14 @@
     return template(this);
   };
 
-  Courses.prototype.toHtml = function() {
+  Categories.prototype.toHtml = function() {
     var template = Handlebars.compile($('#project_menu_template').text());
     return template(this);
   };
 
-  Project.allCoursesFilter = function() {
+  Project.allCategoriesFilter = function() {
     return Project.all.map(function(project) {
-      return project.course;
+      return project.category;
     })
     .filter(function(ele, idx, arr) {
       return arr.indexOf(ele) === idx;
@@ -51,8 +52,8 @@
       Project.all.push(new Project(ele));
     });
 
-    Project.allCoursesFilter().forEach(function(ele) {
-      Courses.all.push(new Courses(ele));
+    Project.allCategoriesFilter().forEach(function(ele) {
+      Categories.all.push(new Categories(ele));
     });
   };
 
