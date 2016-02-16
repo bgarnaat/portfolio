@@ -1,7 +1,7 @@
 [
   {
     "title": "Campfire Coffee",
-    "course": "201",
+    "category": "201",
     "timeline": "16-20 hours (including pair programming)",
     "completed": "2016-01-15",
     "url": "https://github.com/bgarnaat/campfire_coffee",
@@ -10,7 +10,7 @@
   },
   {
     "title": "BusMall",
-    "course": "201",
+    "category": "301",
     "timeline": "approximately 12 hours (including pair programming)",
     "completed": "2016-01-22",
     "url": "https://github.com/bgarnaat/busmall",
@@ -19,7 +19,7 @@
   },
   {
     "title": "Mic Check",
-    "course": "201",
+    "category": "201",
     "timeline": "40+ hours",
     "completed": "2016-01-29",
     "url": "https://github.com/bgarnaat/starving_artists",
