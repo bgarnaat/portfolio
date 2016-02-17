@@ -2,7 +2,7 @@
   var controller_about = {};
 
   controller_about.index = function() {
-    $('.mini_page').hide();
+    $('section').hide();
     $('.about').show();
   };
 

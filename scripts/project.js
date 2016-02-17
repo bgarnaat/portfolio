@@ -21,50 +21,20 @@
   module.Project = Project;
 
   // TODO:  call setStatus !!!
-  Project.prototype.toHtml = function() {
-    var template = Handlebars.compile($('#template_project').text());
+  Project.prototype.toHtml = function(loc) {
+    var template = Handlebars.compile($(loc).text());
     return template(this);
   };
 
   Project.prototype.setStatus = function() {
     this.completed_days = parseInt((new Date() - new Date(this.completed))/60/60/24/1000);
     this.status = this.completed ? this.completed_days + ' days ago' : '(in progress)';
-  }
+  };
 
   Categories.prototype.toHtml = function() {
     var template = Handlebars.compile($('#template_project_menu').text());
     return template(this);
   };
-
-
-
-
-  // THIS IS A THING AND IT NEEDS SOME ATTENTION TO MAKE IT AWESOME.  TODO.
-  //
-  // $(function() {
-  // var template = Handlebars.compile($('#template_project_menu').text());
-  //
-    // var data_menu = {
-    //   category: [
-    //     {category: ''},
-    //     {project: [
-    //       {title: ''},
-    //       {title: ''}
-    //     ]}
-    //   ]
-    // };
-  //
-  //   var data_menu = {
-  //     filters: [
-  //       {filter_type: 'author'},
-  //       {filter_type: 'category'}
-  //     ]
-  //   };
-  //   $('#filters').append(template(filter_data));
-  // });
-  //
-  // END TODO.
-
 
 
   Project.allCategoriesFilter = function() {

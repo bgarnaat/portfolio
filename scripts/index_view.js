@@ -4,19 +4,6 @@
   var index_view = {};
   module.index_view = index_view;
 
-  // TODO:  modify this for use with filters.
-  // $(function() {
-  //   var template = Handlebars.compile($('#filter-template').text());
-  //
-  //   var filter_data = {
-  //     filters: [
-  //       {filter_type: 'author'},
-  //       {filter_type: 'category'}
-  //     ]
-  //   };
-  //   $('#filters').append(template(filter_data));
-  // });
-
   index_view.populateFilters = function() {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
@@ -60,12 +47,14 @@
   };
 
   index_view.initIndexPage = function() {
-    Project.all.forEach(function(a){
-      $('#project_content_area').prepend(a.toHtml());
-    });
-
     Categories.all.forEach(function(b) {
       $('#project_list').append(b.toHtml());
+    });
+
+    Project.all.forEach(function(a){
+      $('#project_content_area').prepend(a.toHtml('#template_project'));
+      $('#project_menu_' + a.category).append(a.toHtml('#template_project_menu_item'));
+      console.log('Project.all.a.category: ' + a.category);
     });
 
     index_view.populateFilters();
