@@ -2,7 +2,7 @@
   var controller_home = {};
 
   controller_home.index = function() {
-    $('.mini_page').hide();
+    $('section').hide();
     $('.home').show();
   };
 

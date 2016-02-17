@@ -4,7 +4,8 @@
 .gitignore
 css/**
 img/**
-js/jquery-2.2.0.min.js
+vendor/**
+scripts/jquery-2.2.0.min.js
 .DS_Store
 .eslintrc
 .eslintignore

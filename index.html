@@ -20,16 +20,19 @@
       </li>
     </script>
 
-    <script id="project_menu_template" type="text/x-handlebars-template">
+
+    <script id="template_project_menu" type="text/x-handlebars-template">
       <li>
-        <ul id="{{category}}">{{category}}
-          <!-- #each  -->
+        <ul id="project_menu_{{category}}"><a href="/projects/{{category}}">{{category}}</a>
         </ul>
-    </li>
+      </li>
+    </script>
+    <script id="template_project_menu_item" type="text/x-handlebars-template">
+      <li><a href="/projects/{{category}}/{{title}}">{{title}}</a></li>
     </script>
 
     <script id="template_project" type="text/x-handlebars-template">
-      <article data-category="{{category}}" data-project="{{title}}">
+      <article data-category="{{category}}" data-project="{{title}}" class="{{category}}" id="{{title}}">
         <div class="card_contents">
           <div class="info_and_img">
             <ul class="content_list">
@@ -50,6 +53,18 @@
         </div>
       </article>
     </script>
+
+    <!-- IF THERE IS NO USEFUL DATA THAT CAN BE EXTRACTED FROM GITHUB THIS TEMPLATE CAN BE RETIRED AND DATA CAN BE MANUALLY UPDATED -->
+    <script id="template_github" type="text/x-handlebars-template">
+      <ul>
+        <li>{{name}}</li>
+        <li>{{prettifyDate updated_at}}</li>
+        <li>{{url}}</li>
+        <li>{{deployments_url}}</li>
+        <li>{{description}}</li>
+      </ul>
+    </script>
+
   </head>
   <body>
     <header>
@@ -129,6 +144,9 @@
     <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script type="text/javascript" src="data/token_github.js"></script>
+    <script type="text/javascript" src="data/repo.js"></script>
+    <script type="text/javascript" src="data/repo_view.js"></script>
     <script type="text/javascript" src="scripts/project.js"></script>
     <script type="text/javascript" src="scripts/index_view.js"></script>
     <script type="text/javascript" src="/scripts/home_controller.js"></script>
