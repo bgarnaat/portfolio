@@ -5,7 +5,6 @@
 css/**
 img/**
 vendor/**
-scripts/jquery-2.2.0.min.js
-.DS_Store
+**/jquery-2.2.0.min.js
 .eslintrc
 .eslintignore

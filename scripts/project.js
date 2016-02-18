@@ -23,12 +23,12 @@
   // TODO:  call setStatus !!!
   Project.prototype.toHtml = function(loc) {
     var template = Handlebars.compile($(loc).text());
-    return template(this);
-  };
 
-  Project.prototype.setStatus = function() {
-    this.completed_days = parseInt((new Date() - new Date(this.completed))/60/60/24/1000);
-    this.status = this.completed ? this.completed_days + ' days ago' : '(in progress)';
+    Handlebars.registerHelper('prettifyDate', function(timestamp) {
+      return new Date(timestamp).toString('yyyy-mm-dd');
+    });
+
+    return template(this);
   };
 
   Categories.prototype.toHtml = function() {
