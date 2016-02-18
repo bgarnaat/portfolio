@@ -11,7 +11,7 @@
   };
 
   repo_view.initProjectPage = function() {
-    $('project_content_area').append(repos.all.map(render));
+    $('#project_content_area').append(repos.all.map(render));
   };
 
   module.repo_view = repo_view;
