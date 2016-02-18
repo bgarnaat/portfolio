@@ -3,16 +3,13 @@
   repos.all = [];
 
   repos.getRepos = function(callback) {
-    $.ajax({
-      url: 'https://api.github.com/users/bgarnaat/repos' +
+    $.get('/github/users/bgarnaat/repos' +
            '?sort=updated',
-      type: 'GET',
-      headers: {'Authorization': 'token ' + github_token},
-      success: function(data, message, xhr) {
+      function(data, message, xhr) {
+        console.log(xhr);
         console.log(data);
         repos.all = data;
-      }
-    }).done(callback);
+      }).done(callback);
   };
 
   repos.select = function(attr) {
