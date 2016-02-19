@@ -28,11 +28,11 @@
       </li>
     </script>
     <script id="template_project_menu_item" type="text/x-handlebars-template">
-      <li><a href="/projects/{{category}}/{{title}}">{{title}}</a></li>
+      <li><a href="/projects/{{category}}/{{despace title}}">{{title}}</a></li>
     </script>
 
     <script id="template_project" type="text/x-handlebars-template">
-      <article data-category="{{category}}" data-project="{{title}}" class="{{category}}" id="{{title}}">
+      <article data-category="{{category}}" data-project="{{title}}" class="{{category}}" id="{{despace title}}">
         <div class="card_contents">
           <div class="info_and_img">
             <ul class="content_list">
@@ -57,7 +57,7 @@
     <script id="template_github" type="text/x-handlebars-template">
       <ul>
         <li>{{name}}</li>
-        <li>{{prettifyDate updated_at}}</li>
+        <li>{{prettifyDate status}}</li>
         <li><a href="{{html_url}}">{{html_url}}</a></li>
         <li>{{deployments_url}}</li>
         <li>{{description}}</li>

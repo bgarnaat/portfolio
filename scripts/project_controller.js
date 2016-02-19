@@ -8,16 +8,19 @@
     $('.projects').show();
   };
 
-  controller_project.index_course = function(ctx) {
+  controller_project.index_course = function(ctx, next) {
     console.log(ctx.params.category);
     $('article').hide();
     $('.' + ctx.params.category).show();
+    next;
   };
 
-  controller_project.index_item = function(ctx) {
-    console.log(ctx.params.project);
+  controller_project.index_item = function(ctx, next) {
+    var project_despace = ctx.params.project.replace(/\W+/g, '');
+    console.log('project_despace: ' + project_despace);
     $('article').hide();
-    $('#' + ctx.params.project).show();
+    $('#' + project_despace).show();
+    next;
   };
 
   module.controller_project = controller_project;
