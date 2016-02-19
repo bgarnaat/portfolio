@@ -24,8 +24,13 @@
   Project.prototype.toHtml = function(loc) {
     var template = Handlebars.compile($(loc).text());
 
-    Handlebars.registerHelper('prettifyDate', function(timestamp) {
-      return new Date(timestamp).toString('yyyy-mm-dd');
+    Handlebars.registerHelper('despace', function() {
+      return this.title.replace(/\W+/g, '');
+    });
+
+    Handlebars.registerHelper('prettifyDate', function() {
+      this.completed_days = parseInt((new Date() - new Date(this.completed))/60/60/24/1000);
+      return this.status = this.completed ? this.completed_days + ' days ago' : '(in progress)';
     });
 
     return template(this);
@@ -33,6 +38,11 @@
 
   Categories.prototype.toHtml = function() {
     var template = Handlebars.compile($('#template_project_menu').text());
+
+    Handlebars.registerHelper('despace', function() {
+      return this.title.replace(/\W+/g, '');
+    });
+
     return template(this);
   };
 
@@ -50,11 +60,9 @@
     data_projects.sort(function(a,b) {
       return (new Date(a.completed)) - (new Date(b.completed));
     });
-
     data_projects.forEach(function(ele) {
       Project.all.push(new Project(ele));
     });
-
     Project.allCategoriesFilter().forEach(function(ele) {
       Categories.all.push(new Categories(ele));
     });
@@ -69,7 +77,6 @@
           console.log(xhr);
           var eTag = xhr.getResponseHeader('eTag');
           if (!localStorage.eTag || eTag !== localStorage.eTag) {
-            // localStorage.clear();
             localStorage.eTag = eTag;
             Project.getData();
           } else {

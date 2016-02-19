@@ -8,40 +8,43 @@
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
         var val = $(this).attr('data-project');
-        var optionTag = '<option value="' + val + '">' + val + '</option>';
+        var optionTag = '<option value="' + val.replace(/\W+/g, '') + '">' + val + '</option>';
         $('#filter_project').append(optionTag);
 
         val = $(this).attr('data-category');
-        optionTag = '<option value="' + val + '">' + val + '</option>';
-        if ($('#filter_category option[value="' + val + '"]').length === 0) {
+        optionTag = '<option value="' + val.replace(/\W+/g, '') + '">' + val + '</option>';
+        if ($('#filter_category option[value="' + val.replace(/\W+/g, '') + '"]').length === 0) {
           $('#filter_category').append(optionTag);
         }
       }
     });
   };
 
+  // WORK IN PROGRESS:  FIX FILTERS IN MOBILE VIEW...  migrate to single handler?
+  // restructure the way things are populated.
+
+  // index_view.handleFilters = function() {
+  //   console.log('handling filters');
+  //   $('#filters').one('change', 'select', function() {
+  //     console.log('you got filtered son!');
+  //     var resource = this.id.replace('filter_', '');
+  //     page('/' + resource + '/' + $(this).val().replace(/\W+/g, '')); // Replace any/all whitespace with a +
+  //     console.log('filterstep3');
+  //   });
+  // };
+
   index_view.handleCategoryFilter = function() {
     $('#filter_category').on('change', function() {
-      if ($(this).val()) {
-        $('article').hide();
-        $('article[data-category="' + $(this).val() + '"]').fadeIn();
-      } else {
-        $('article').fadeIn();
-        $('article.template').hide();
-      }
+      $('article').hide();
+      $('.' + $(this).val().replace(/\W+/g, '')).fadeIn();
       $('#filter_project').val('');
     });
   };
 
   index_view.handleProjectFilter = function() {
     $('#filter_project').on('change', function() {
-      if ($(this).val()) {
-        $('article').hide();
-        $('article[data-project="' + $(this).val() + '"]').fadeIn();
-      } else {
-        $('article').fadeIn();
-        $('article.template').hide();
-      }
+      $('article').hide();
+      $('#' + $(this).val().replace(/\W+/g, '')).fadeIn();
       $('#filter_category').val('');
     });
   };
@@ -58,6 +61,7 @@
     });
 
     index_view.populateFilters();
+    // index_view.handleFilters();  // this filter method is broken... On the bright side we're temporarily saving users from pretending like mobile isn't an absolutely terrible way to view any website ever made in the history of man, because screen made for ants...,  so that's a bonus
     index_view.handleProjectFilter();
     index_view.handleCategoryFilter();
     $('.projects').hide();
