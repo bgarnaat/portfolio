@@ -38,7 +38,7 @@
 .home {
   margin: 20px;
 }
-.about {
+.contact {
   margin: 20px;
 }
 .project_area {
@@ -87,7 +87,7 @@ footer > ul {
     flex-direction: column;
     padding: 0px;
   }
-  .home, .about{
+  .home, .contact{
     width: 85%;
   }
   .project_area {

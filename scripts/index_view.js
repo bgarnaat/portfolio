@@ -65,6 +65,6 @@
     index_view.handleProjectFilter();
     index_view.handleCategoryFilter();
     $('.projects').hide();
-    $('.about').hide();
+    $('.contact').hide();
   };
 })(window);

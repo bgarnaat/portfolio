@@ -1,6 +1,6 @@
 page('/', controller_home.index);
 page('/projects', controller_project.index);
-page('/about', controller_about.index);
+page('/contact', controller_contact.index);
 page('/projects/:category', controller_project.index_course);
 page('/projects/:category/:project', controller_project.index_item);  // THIS IS SORT OF NOT CURRENTLY WORKING.  NEED TROUBLESHOOTING.
 // line 5 bugs:  any projects with spaces in the title will not be loaded.  link replaces space with %20 while id containes space... 2 ids...   :/
